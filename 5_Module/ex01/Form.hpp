@@ -1,0 +1,46 @@
+#ifndef FORM_HPP
+# define FORM_HPP
+
+# include <iostream>
+# include <stdexcept>
+# include "Bureaucrat.hpp"
+
+class Bureaucrat;
+
+class Form{
+    public:
+        Form();
+        Form(const std::string name, const int requiredExecGrade, const int requiredSignGrade);
+        Form(const Form &f);
+        
+        Form &operator=(const Form &f);
+        ~Form();
+
+        std::string getName() const;
+        int         getRequiredSignGrade() const;
+        int         getRequiredExecGrade() const;
+        bool        getSignStatus() const;
+        void        beSigned(Bureaucrat &b);
+
+        class GradeTooLowException: public std::exception{
+            virtual const char *what() const throw(){
+                return "Form Exception: Grade Too Low";
+            }
+        };
+
+        class GradeTooHighException: public std::exception{
+            virtual const char *what() const throw(){
+                return "Form Exception: Grade Too High";
+            }
+        };
+
+    private:
+        const std::string   name;
+        const int           requiredExecGrade;
+        const int           requiredSignGrade;
+        bool                sign;
+};
+
+std::ostream &operator<<(std::ostream &out, Form &f);
+
+#endif
