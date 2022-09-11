@@ -105,7 +105,7 @@ void        printChar(unsigned char input){
 }
 
 void        printInt(int input){
-    if (input > std::numeric_limits<int>::max() || input < std::numeric_limits<int>::lowest()){
+    if (input > std::numeric_limits<int>::max() || input < std::numeric_limits<int>::min()){
         std::cout << "int: impossible" << std::endl;
         return;
     }
