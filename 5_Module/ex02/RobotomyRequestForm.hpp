@@ -3,6 +3,8 @@
 
 # include <iostream>
 # include <cstdlib>
+# include <stdlib.h>
+# include <time.h>
 # include "Bureaucrat.hpp"
 # include "Form.hpp"
 

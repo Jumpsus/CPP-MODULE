@@ -35,8 +35,6 @@ int main(void){
          std::cout << "sign status of " << rb->getName() << " : " << rb->getSignStatus() << std::endl;
          b1->executeForm(*rb);
          rb->execute(*b1);
-         rb->execute(*b1);
-         rb->execute(*b1);
          delete rb;
     }
     catch (std::exception &exception){
