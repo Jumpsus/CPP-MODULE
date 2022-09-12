@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 #include "utils.hpp"
 
 void    implement(char *in){
@@ -35,21 +36,21 @@ void    implement(char *in){
 
     switch (typeCode){
         case (1):
-            scalarChar = std::stoi(input);
+            scalarChar = atoi(in);
             printChar(scalarChar);
             printInt(static_cast<int>(scalarChar));
             printFloat(static_cast<float>(scalarChar));
             printDouble(static_cast<double>(scalarChar));
             break;
         case (2):
-            scalarInt = std::stoi(input);
+            scalarInt = atoi(in);
             printChar(static_cast<unsigned char>(scalarInt));
             printInt(scalarInt);
             printFloat(static_cast<float>(scalarInt));
             printDouble(static_cast<double>(scalarInt));
             break;
         case (3):
-            scalarFloat = std::stof(input);
+            scalarFloat = atof(in);
             if (isSpecialCase(input)){
                 std::cout << "char: impossible" << std::endl;
                 std::cout << "int: impossible" << std::endl;
@@ -61,7 +62,7 @@ void    implement(char *in){
             printDouble(static_cast<double>(scalarFloat));
             break;
         case (4):
-            scalarDouble = std::stod(input);
+            scalarDouble = strtod(in, NULL);          
             if (isSpecialCase(input)){
                 std::cout << "char: impossible" << std::endl;
                 std::cout << "int: impossible" << std::endl;
