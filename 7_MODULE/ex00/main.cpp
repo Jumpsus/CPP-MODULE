@@ -36,15 +36,15 @@ int main(){
     std::cout << "after swap (string) first: " << i << " second: " << j << std::endl << std::endl;
 
     std::cout << "=== MIN TEST ===" << std::endl;
-    std::cout << "before min (char) first: " << min(a, b) << std::endl;
-    std::cout << "before min (int) first: " << min(c, d) << std::endl;
-    std::cout << "before min (float) first: " << min(e, f) << std::endl;
-    std::cout << "before min (double) first: " << min(g, h) << std::endl << std::endl;
+    std::cout << "min (char): " << min(a, b) << std::endl;
+    std::cout << "min (int): " << min(c, d) << std::endl;
+    std::cout << "min (float): " << min(e, f) << std::endl;
+    std::cout << "min (double): " << min(g, h) << std::endl << std::endl;
 
     std::cout << "=== MAX TEST ===" << std::endl;
-    std::cout << "before max (char) first: " << max(a, b) << std::endl;
-    std::cout << "before max (int) first: " << max(c, d) << std::endl;
-    std::cout << "before max (float) first: " << max(e, f) << std::endl;
-    std::cout << "before max (double) first: " << max(g, h) << std::endl << std::endl;
+    std::cout << "max (char): " << max(a, b) << std::endl;
+    std::cout << "max (int): " << max(c, d) << std::endl;
+    std::cout << "max (float): " << max(e, f) << std::endl;
+    std::cout << "max (double): " << max(g, h) << std::endl << std::endl;
 
 }

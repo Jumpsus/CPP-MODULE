@@ -30,12 +30,12 @@ template<typename T> class Array{
 };
 
 template<typename T>
-Array<T>::Array():_size(0), _typePtr(nullptr){
+Array<T>::Array():_size(0), _typePtr(NULL){
     std::cout << "Create empty array" << std::endl;
 }
 
 template<typename T>
-Array<T>::Array(unsigned int n):_size(n), _typePtr(nullptr){
+Array<T>::Array(unsigned int n):_size(n), _typePtr(NULL){
     if (n == 0){
         throw(Array::OutOfRangeException());
     }
@@ -45,7 +45,7 @@ Array<T>::Array(unsigned int n):_size(n), _typePtr(nullptr){
 }
 
 template<typename T>
-Array<T>::Array(Array<T> const &a):_size(a.size()), _typePtr(nullptr){
+Array<T>::Array(Array<T> const &a):_size(a.size()), _typePtr(NULL){
     if (a.size() == 0){
         return ;
     }
@@ -57,18 +57,18 @@ Array<T>::Array(Array<T> const &a):_size(a.size()), _typePtr(nullptr){
 
 template<typename T>
 Array<T>    &Array<T>::operator=(Array<T> const &a){
-    if (this->_typePtr != nullptr){
+    if (this->_typePtr != NULL){
         delete []this->_typePtr;
     }
 
     this->_size = a.size();
     if (a.size() == 0){
-        this->_typePtr = nullptr;
+        this->_typePtr = NULL;
         return (*this);
     }
 
     this->_typePtr = new T[this->_size];
-    for (int i = 0; i < _size; i++){
+    for (unsigned int i = 0; i < _size; i++){
         this->_typePtr[i] = a[i];
     }
     return (*this);
@@ -94,7 +94,7 @@ T       &Array<T>::operator[](const unsigned int index) const{
 template<typename T>
 Array<T>::~Array(){
     std::cout << "Destruct Array" << std::endl;
-    if (this->_typePtr == nullptr){
+    if (this->_typePtr == NULL){
         return ;
     }
     delete []this->_typePtr;

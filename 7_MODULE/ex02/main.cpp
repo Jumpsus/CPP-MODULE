@@ -7,7 +7,7 @@ int main(){
         Array<int>   arr1(10);
         Array<int>   arr2(5);
 
-        for(int i = 0; i < arr1.size(); i++){
+        for(unsigned int i = 0; i < arr1.size(); i++){
             arr1[i] = i + 1;
         }
 
@@ -26,7 +26,7 @@ int main(){
         arr2.display();
 
         std::cout << std::endl << "Change Value in arr2 (arr1 shouldn't change)" << std::endl;
-        for(int i = 0; i < arr2.size(); i++){
+        for(unsigned int i = 0; i < arr2.size(); i++){
             arr2[i] = arr2[i] * arr2[i];
         }
 
@@ -43,7 +43,7 @@ int main(){
             Array<std::string>  arr2;
 
             std::cout << "Fill new Array" << std::endl;
-            for (int i = 0; i < arr1.size(); i++){
+            for (unsigned int i = 0; i < arr1.size(); i++){
                 arr1[i] = "Sample";
             }
             std::cout << "arr1 : ";
