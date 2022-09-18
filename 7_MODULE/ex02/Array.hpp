@@ -15,9 +15,10 @@ template<typename T> class Array{
 
         T &operator[](const unsigned int index) const;
 
+        void    display()const;
         class OutOfRangeException : public std::exception{
             public:
-                virtual const char *what() const throw{
+                virtual const char *what() const throw(){
                     return ("<Exception> Index is out of range");
                 }
         };
@@ -38,8 +39,9 @@ Array<T>::Array(unsigned int n):_size(n), _typePtr(nullptr){
     if (n == 0){
         throw(Array::OutOfRangeException());
     }
-    typePtr = new T[n];
     std::cout << "Create arrau size " << n << std::endl; 
+    _typePtr = new T[n];
+    this->display();
 }
 
 template<typename T>
@@ -60,7 +62,7 @@ Array<T>    &Array<T>::operator=(Array<T> const &a){
     }
 
     this->_size = a.size();
-    if (a.size == 0){
+    if (a.size() == 0){
         this->_typePtr = nullptr;
         return (*this);
     }
@@ -73,6 +75,15 @@ Array<T>    &Array<T>::operator=(Array<T> const &a){
 }
 
 template<typename T>
+void    Array<T>::display() const{
+    std::cout << "[ ";
+    for (unsigned int   i = 0; i < this->size(); i++){
+        std::cout << this->_typePtr[i] << " ";
+    }
+    std::cout << "]" <<std::endl;
+}
+
+template<typename T>
 T       &Array<T>::operator[](const unsigned int index) const{
     if (index >= this->_size){
         throw(Array::OutOfRangeException());
@@ -82,6 +93,7 @@ T       &Array<T>::operator[](const unsigned int index) const{
 
 template<typename T>
 Array<T>::~Array(){
+    std::cout << "Destruct Array" << std::endl;
     if (this->_typePtr == nullptr){
         return ;
     }
