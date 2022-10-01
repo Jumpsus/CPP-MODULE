@@ -13,6 +13,7 @@ int main(){
         std::cout << (*iter) << " ";
         iter++;
     }
+
     std::cout << std::endl;
 
 }

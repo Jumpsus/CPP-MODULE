@@ -12,11 +12,15 @@ class MutantStack: public std::stack<T>{
         };
 
         MutantStack<T>(const MutantStack<T> &m){
-
+            (*this) = m;
         };
 
         MutantStack<T> &operator=(const MutantStack<T> &m){
-
+            if (this == &m){
+                return (*this);
+            }
+            (*this) = m;
+            return (*this);
         };
 
         ~MutantStack<T>(){
