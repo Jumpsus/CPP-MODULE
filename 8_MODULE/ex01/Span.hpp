@@ -19,7 +19,7 @@ class Span{
         unsigned    int     longestSpan();
         unsigned    int     size() const;
         unsigned    int     maxSize() const;
-        class   exceedMaximumLimit : std::exception{
+        class   exceedMaximumLimit : public std::exception{
             public:
                 virtual const char *what() const throw(){
                     return ("size is beyond maximum limit");
