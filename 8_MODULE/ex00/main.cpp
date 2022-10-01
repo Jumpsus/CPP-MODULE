@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <exception>
 #include "easyfind.hpp"
 
 template <typename C>
