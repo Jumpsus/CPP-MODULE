@@ -4,15 +4,21 @@ static std::string getInput(std::string text)
 {
 	std::string	input;
 
-	std::cout << text;
-	std::cin >> input;
-	if (input != "\n")
-	{
-		return (input);
-	}
-	std::cout << "Wrong input !! Please fill it again...";
-	std::cout << std::endl;
-	return (getInput(text));
+	do {
+		std::cout << text;
+		std::getline(std::cin, input);
+	} while (input == "");
+
+	return (input);
+	// std::cout << text;
+	// std::cin >> input;
+	// if (input != "\n")
+	// {
+	// 	return (input);
+	// }
+	// std::cout << "Wrong input !! Please fill it again...";
+	// std::cout << std::endl;
+	// return (getInput(text));
 }
 
 Contact::Contact()
