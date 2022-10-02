@@ -13,7 +13,7 @@ all : $(NAME)
 %.o : %.cpp
 	$(CPP) $(FLAG) -c $<
 
-$(NAME) : $(OBJS) PhoneBook.hpp
+$(NAME) : $(OBJS) Contact.hpp PhoneBook.hpp
 	$(CPP) $(FLAG) $(OBJS) -o $(NAME)
 
 clean :
