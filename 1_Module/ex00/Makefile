@@ -1,8 +1,6 @@
 NAME = ex00
 
-STD = -std=c++98
-
-FLAG = -Wall -Wextra -Werror
+FLAG = -std=c++98 -Wall -Wextra -Werror
 
 COMPLIER = c++
 
