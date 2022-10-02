@@ -1,9 +1,24 @@
 #include "PhoneBook.hpp"
 #include <limits>
+#include <cstdlib>
+
+int     StringToInt(std::string index){
+    int result = 0;
+
+    for (size_t    i = 0; i < index.length(); i++){
+        if (index[i] < '0' || index[i] > '9'){
+            return (-1);
+        }
+        result = result * 10 + index[i] - '0';
+    }
+    return (result);
+}
 
 int     main()
 {
     std::string input;
+    std::string index;
+
     PhoneBook phonebook = PhoneBook();
 
     while(1)
@@ -30,6 +45,11 @@ int     main()
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             phonebook.ShowContacts();
+            std::cout << "Index :";
+            std::cin >> index;
+            phonebook.ShowFullContact(StringToInt(index));
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
     }
     return (1);

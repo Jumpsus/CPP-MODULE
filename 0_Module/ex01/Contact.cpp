@@ -1,4 +1,4 @@
-#include "PhoneBook.hpp"
+#include "Contact.hpp"
 
 static std::string getInput(std::string text)
 {
@@ -10,15 +10,6 @@ static std::string getInput(std::string text)
 	} while (input == "");
 
 	return (input);
-	// std::cout << text;
-	// std::cin >> input;
-	// if (input != "\n")
-	// {
-	// 	return (input);
-	// }
-	// std::cout << "Wrong input !! Please fill it again...";
-	// std::cout << std::endl;
-	// return (getInput(text));
 }
 
 Contact::Contact()
@@ -72,8 +63,6 @@ void	Contact::ShowInfo()
 	print_ten(nickName);
 	std::cout << "|";
 	print_ten(phoneNumber);
-	std::cout << "|";
-	print_ten(darkestSecret);
 	std::cout << std::endl;
 	return ;
 }
@@ -86,4 +75,17 @@ void	Contact::CleanContact()
 	phoneNumber = "";
 	darkestSecret =  "";
 	occupied = 0;
+}
+
+void	Contact::ShowFullInfo()
+{
+	std::cout << "- First Name: " << this->firstName << std::endl;
+	std::cout << "- Last Name: " << this->lastName << std::endl;
+	std::cout << "- Nick Name: " << this->nickName << std::endl;
+	std::cout << "- Phone Number: " << this->phoneNumber << std::endl;
+	std::cout << "- Dark Secret: " << this->darkestSecret << std::endl;
+}
+
+int		Contact::getOccupied(){
+	return (this->occupied);
 }

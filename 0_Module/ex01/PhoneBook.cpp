@@ -1,11 +1,24 @@
 #include "PhoneBook.hpp"
 
+int     PhoneBook::countContact(){
+    int     count;
+
+    count = 0;
+    for (int    i = 0; i < 8; i++){
+        if (contacts[i].getOccupied() == 0){
+            return (count);
+        }
+        count++;
+    }
+    return (count);
+}
+
 void	PhoneBook::ShowContacts(){
 	int	i = 0;
 
 	while (i < 8)
 	{
-		if (contacts[i].occupied == 0)
+		if (contacts[i].getOccupied() == 0)
 			return;
 		contacts[i].ShowInfo();
 		i++;
@@ -32,7 +45,7 @@ void	PhoneBook::AddContact(Contact contact){
 
     while(i < 8)
     {
-        if (contacts[i].occupied == 0)
+        if (contacts[i].getOccupied() == 0)
         {
             contacts[i] = contact;
             return ;
@@ -53,4 +66,15 @@ void	PhoneBook::CleanContacts()
         contacts[i].CleanContact();
         i++;
     }
+}
+
+void    PhoneBook::ShowFullContact(int index){
+    int range = this->countContact();
+
+    if (index > range - 1 || index < 0){
+        std::cout << "Out of Range !!" << std::endl;
+        return ;
+    }
+    this->contacts[index].ShowFullInfo();
+    return ;
 }
