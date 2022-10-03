@@ -45,11 +45,11 @@ int     main()
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             phonebook.ShowContacts();
-            std::cout << "Index :";
-            std::cin >> index;
+            do {
+		        std::cout << "Index :";
+		        std::getline(std::cin, index);
+	        } while (index == "");
             phonebook.ShowFullContact(StringToInt(index));
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
     }
     return (1);
