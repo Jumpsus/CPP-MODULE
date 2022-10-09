@@ -1,11 +1,11 @@
-NAME = harlFilter
+NAME = ex05
 
 COMPLIER = c++
 
-FLAG = -std=c++98 -Wall -Wextra -Werror
+FLAG = -std=c++98 -Wall -Wextra
 
 SRCS = 	main.cpp \
-		HarlFilter.cpp
+		Harl.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

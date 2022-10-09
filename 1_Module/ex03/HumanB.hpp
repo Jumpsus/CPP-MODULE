@@ -4,6 +4,7 @@
 # include "Weapon.hpp"
 class HumanB{
     public:
+        HumanB(std::string n, Weapon &w);
         HumanB(std::string n);
         ~HumanB();
         void    setWeapon(Weapon &w);

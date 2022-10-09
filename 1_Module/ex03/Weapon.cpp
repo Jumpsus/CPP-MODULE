@@ -1,11 +1,13 @@
 #include "Weapon.hpp"
 
 Weapon::Weapon(){
-
+    this->type = "unknown weapon";
+    std::cout << "Weapon " << this->type << " is created" << std::endl;
 }
 
 Weapon::Weapon(std::string t){
     this->type = t;
+    std::cout << "Weapon " << this->type << " is created" << std::endl;
 }
 
 Weapon::~Weapon(){

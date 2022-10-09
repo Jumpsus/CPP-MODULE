@@ -2,7 +2,7 @@
 # define HARL_HPP
 
 # include <iostream>
-class HarlFilter{
+class Harl{
     public:
         void    complain( std::string level);
     private:
