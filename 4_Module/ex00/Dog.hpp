@@ -12,7 +12,7 @@ class Dog: public Animal{
 
         Dog &operator=(Dog const &dog);
         
-        void makeSound();
+        void makeSound() const;
 };
 
 std::ostream &operator<<(std::ostream &out, Dog &dog);
