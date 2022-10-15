@@ -2,6 +2,9 @@
 
 ClapTrap::ClapTrap(){
     std::cout << "Create Default ClapTrap." << std::endl;
+    this->hitPoint = 10;
+    this->energyPoint = 10;
+    this->attackDamage = 0;
 }
 
 ClapTrap::ClapTrap( std::string const name ){
@@ -67,7 +70,7 @@ void    ClapTrap::attack(const std::string &target){
         return ;
     }
     if (this->hitPoint <= 0){
-        std::cout << this->name << " doesn't have enough Hit Point" << std::endl;
+        std::cout << this->name << " has already fainted (0 Hit Point)" << std::endl;
         return ;
     }
     this->energyPoint--;
@@ -86,7 +89,7 @@ void    ClapTrap::beRepaired(unsigned int amount){
         return ;
     }
     if (this->hitPoint <= 0){
-        std::cout << this->name << " doesn't have enough Hit Point" << std::endl;
+        std::cout << this->name << " has already fainted (0 Hit Point)" << std::endl;
         return ;
     }
     std::cout << this->name << " has repaired " << amount << " hit points !!" << std::endl;

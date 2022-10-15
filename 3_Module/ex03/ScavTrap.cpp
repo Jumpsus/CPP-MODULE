@@ -2,6 +2,9 @@
 
 ScavTrap::ScavTrap(){
     std::cout << "Create Default ScavTrap." << std::endl;
+    this->setHitPoint(100);
+    this->setEnergyPoint(50);
+    this->setAttackDamage(20);
 }
 
 ScavTrap::ScavTrap(std::string const name) : ClapTrap(name){

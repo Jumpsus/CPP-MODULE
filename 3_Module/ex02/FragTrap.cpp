@@ -2,6 +2,9 @@
 
 FragTrap::FragTrap(){
     std::cout << "Create Default FragTrap." << std::endl;
+    this->setHitPoint(100);
+    this->setEnergyPoint(100);
+    this->setAttackDamage(30);
 }
 
 FragTrap::FragTrap(std::string const name) : ClapTrap(name){
@@ -16,7 +19,6 @@ FragTrap::~FragTrap(){
 }
 
 FragTrap::FragTrap(FragTrap const &f) : ClapTrap(f.getName()){
-    this->setName(f.getName());
     this->setAttackDamage(f.getAttackDamage());
     this->setEnergyPoint(f.getEnergyPoint());
     this->setHitPoint(f.getHitPoint());
@@ -37,7 +39,7 @@ void    FragTrap::attack(std::string const &target){
         return ;
     }
     if (this->getHitPoint() <= 0){
-        std::cout << this->getName() << " doesn't have enough Hit Point" << std::endl;
+        std::cout << this->getName() << " has already fainted (0 Hit Point)" << std::endl;
         return ;
     }
     this->setEnergyPoint(this->getEnergyPoint() - 1);
@@ -45,6 +47,14 @@ void    FragTrap::attack(std::string const &target){
 }
 
 void    FragTrap::highFiveGuys(){
+    if (this->getEnergyPoint() <= 0){
+        std::cout << this->getName() << " doesn't have enough Enerygy Point" << std::endl;
+        return ;
+    }
+    if (this->getHitPoint() <= 0){
+        std::cout << this->getName() << " has already fainted (0 Hit Point)" << std::endl;
+        return ;
+    }
     std::cout << "FragTrap "<< this->getName() << " give you high fives." << std::endl;
 }
 

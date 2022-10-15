@@ -2,6 +2,9 @@
 
 ScavTrap::ScavTrap(){
     std::cout << "Create Default ScavTrap." << std::endl;
+    this->setHitPoint(100);
+    this->setEnergyPoint(50);
+    this->setAttackDamage(20);
 }
 
 ScavTrap::ScavTrap(std::string const name) : ClapTrap(name){
@@ -16,7 +19,6 @@ ScavTrap::~ScavTrap(){
 }
 
 ScavTrap::ScavTrap(ScavTrap const &s) : ClapTrap(s.getName()){
-    this->setName(s.getName());
     this->setAttackDamage(s.getAttackDamage());
     this->setEnergyPoint(s.getEnergyPoint());
     this->setHitPoint(s.getHitPoint());
@@ -37,7 +39,7 @@ void    ScavTrap::attack(std::string const &target){
         return ;
     }
     if (this->getHitPoint() <= 0){
-        std::cout << this->getName() << " doesn't have enough Hit Point" << std::endl;
+        std::cout << this->getName() << " has already fainted (0 Hit Point)" << std::endl;
         return ;
     }
     this->setEnergyPoint(this->getEnergyPoint() - 1);
@@ -45,6 +47,14 @@ void    ScavTrap::attack(std::string const &target){
 }
 
 void    ScavTrap::guardGate(){
+    if (this->getEnergyPoint() <= 0){
+        std::cout << this->getName() << " doesn't have enough Enerygy Point" << std::endl;
+        return ;
+    }
+    if (this->getHitPoint() <= 0){
+        std::cout << this->getName() << " has already fainted (0 Hit Point)" << std::endl;
+        return ;
+    }
     std::cout << "ScavTrap "<< this->getName() << " is now in Gate keeper mode." << std::endl;
 }
 

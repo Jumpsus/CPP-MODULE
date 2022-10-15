@@ -2,6 +2,9 @@
 
 ClapTrap::ClapTrap(){
     std::cout << "Create Default ClapTrap." << std::endl;
+    this->hitPoint = 10;
+    this->energyPoint = 10;
+    this->attackDamage = 0;
 }
 
 ClapTrap::ClapTrap( std::string const name ){

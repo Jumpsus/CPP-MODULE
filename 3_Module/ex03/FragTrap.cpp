@@ -2,6 +2,9 @@
 
 FragTrap::FragTrap(){
     std::cout << "Create Default FragTrap." << std::endl;
+    this->setHitPoint(100);
+    this->setEnergyPoint(100);
+    this->setAttackDamage(30);
 }
 
 FragTrap::FragTrap(std::string const name) : ClapTrap(name){
