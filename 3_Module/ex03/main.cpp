@@ -5,10 +5,10 @@
 
 int main(){
     {
-        ClapTrap clap("ClapTrap");
-        FragTrap frag("FragTrap");
-        ScavTrap scav("ScavTrap");
-        DiamondTrap diam("DiamondTrap");
+        ClapTrap        clap("ClapTrap");
+        FragTrap        frag("FragTrap");
+        ScavTrap        scav("ScavTrap");
+        DiamondTrap     diam("DiamondTrap");
 
         std::cout << "=== Clap attack Scav ==="<< std::endl;
 
