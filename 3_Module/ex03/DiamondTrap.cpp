@@ -2,6 +2,9 @@
 
 DiamondTrap::DiamondTrap(){
     std::cout << "Create Default DiamondTrap." << std::endl;
+    this->setHitPoint(FragTrap::getHitPoint());
+    this->setEnergyPoint(ScavTrap::getEnergyPoint());
+    this->setAttackDamage(FragTrap::getAttackDamage());
 }
 
 DiamondTrap::DiamondTrap(std::string const name): ClapTrap(name + "_clap_name"){
