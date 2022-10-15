@@ -85,7 +85,8 @@ Fixed   Fixed::operator*(Fixed const &f){
 }
 
 Fixed   Fixed::operator/(Fixed const &f){
-    Fixed   result(this->toFloat() / f.toFloat());
+    float   res = this->toFloat() / f.toFloat();
+    Fixed   result(res);
 
     return (result);
 }

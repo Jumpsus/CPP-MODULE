@@ -32,6 +32,7 @@ class Fixed{
         bool    operator<=(Fixed const &f) const;
         bool    operator==(Fixed const &f) const;
         bool    operator!=(Fixed const &f) const;
+        
         Fixed   const   operator+(Fixed const &f) const;
         Fixed   const   operator-(Fixed const &f) const;
         Fixed   const   operator*(Fixed const &f) const;

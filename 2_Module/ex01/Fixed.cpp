@@ -7,6 +7,7 @@ Fixed::Fixed(){
 }
 
 Fixed::Fixed(int const value){
+    std::cout << "Constructor with Integer Argument called" << std::endl;
     this->value = value << this->fractional;
 }
 
@@ -18,6 +19,7 @@ Fixed::Fixed(float const value) {
     /* convert floating point to fixed point needed to 
        do followind equation: roundf(float * 2^(fix_fractional)) 
        roundf is for excession bit that came from mutiplying */
+    std::cout << "Constructor with Float Argument called" << std::endl;
     this->value = roundf(value * pow(2, this->fractional));
 }
 

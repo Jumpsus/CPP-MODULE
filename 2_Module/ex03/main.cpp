@@ -3,12 +3,26 @@
 #include <iostream>
 
 int main( void ) {
-    Point const a( Fixed (0), Fixed (0));
-    Point const b( Fixed (0), Fixed (10));
-    Point const c( Fixed (20), Fixed (0));
+    {
+        std::cout << "=== Out of Range Point ===" << std::endl;
+        Point const a( Fixed (0), Fixed (0));
+        Point const b( Fixed (0), Fixed (10));
+        Point const c( Fixed (20), Fixed (0));
 
-    Point const point(Fixed (20), Fixed (1));
+        Point const point(Fixed (20), Fixed (1));
 
-    std::cout << bsp(a,b,c,point) << std::endl;
+        std::cout << std::boolalpha << bsp(a,b,c,point) << std::endl;   
+    }
+    {
+        std::cout << "=== In Range Point ===" << std::endl;
+        Point const a( Fixed (0), Fixed (0));
+        Point const b( Fixed (5), Fixed (5));
+        Point const c( Fixed (10), Fixed (0));
+
+        Point const point(Fixed (3), Fixed (3));
+
+        std::cout << std::boolalpha << bsp(a,b,c,point) << std::endl;   
+    }
+    
     return 0;
 }
