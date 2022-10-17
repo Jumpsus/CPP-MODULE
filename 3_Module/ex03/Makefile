@@ -2,7 +2,7 @@ NAME = ex03
 
 COMPLIER = c++
 
-FLAG = -std=c++98 -Wall -Wextra -Werror
+FLAG = -std=c++98 -Wall -Wextra -Werror -Wshadow
 
 SRCS = 	main.cpp \
 		ClapTrap.cpp \

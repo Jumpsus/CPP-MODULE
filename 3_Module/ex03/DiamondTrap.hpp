@@ -20,7 +20,7 @@ class DiamondTrap: public FragTrap, public ScavTrap{
         void        setName(std::string name);
         std::string getName() const;
     private:
-        std::string name;
+        std::string _name;
 };
 
 std::ostream &operator<<(std::ostream &out, DiamondTrap &d);
