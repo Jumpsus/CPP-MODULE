@@ -6,6 +6,10 @@ Point::Point( Fixed const x_in, Fixed const y_in ):x(x_in), y(y_in){ // invoking
 
 }
 
+Point::Point (float const x, float const y):x(Fixed(x)), y (Fixed(y)){
+    
+}
+
 Point::Point( void ){
     Fixed const x_in(0);
     Fixed const y_in(0);

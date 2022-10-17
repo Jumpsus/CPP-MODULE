@@ -8,6 +8,7 @@ class Point{
     public:
         Point( void );
         Point( Fixed const x, Fixed const y );
+        Point( float const x, float const y);
         Point( Point const &p );
 
         ~Point( void );

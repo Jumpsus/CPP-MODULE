@@ -19,7 +19,7 @@ int main( void ) {
         Point const b( Fixed (5), Fixed (5));
         Point const c( Fixed (10), Fixed (0));
 
-        Point const point(Fixed (3), Fixed (3));
+        Point const point(3.0f, 3.0f);
 
         std::cout << std::boolalpha << bsp(a,b,c,point) << std::endl;   
     }
