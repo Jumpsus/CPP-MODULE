@@ -28,10 +28,10 @@ class ClapTrap{
         static void Showinfo(ClapTrap const &c);
 
     protected:
-        std::string name;
-        int         hitPoint;
-        int         energyPoint;
-        int         attackDamage;
+        std::string _name;
+        int         _hitPoint;
+        int         _energyPoint;
+        int         _attackDamage;
 };
 
 std::ostream &operator<<(std::ostream &out, ClapTrap &c);
