@@ -4,13 +4,23 @@
 
 int main(){
 
-    // Animal s; // This should not be allowed since it is abstract class (cannot be instantiated)
-    Cat cat;
-    Dog dog;
+    {
+        std::cout << "=== Normal Case ===" << std::endl;
+        Cat cat;
+        Dog dog;
 
-    Animal *a1 = &cat;
-    Animal *a2 = &dog;
+        Animal *a1 = &cat;
+        Animal *a2 = &dog;
 
-    a1->makeSound();
-    a2->makeSound();
+        a1->makeSound();
+        a2->makeSound();
+        std::cout << std::endl;
+    }
+    {
+        // std::cout << "=== Error Case === (Need to uncomment in main)" << std::endl;
+        // Animal animal;
+
+        // animal->makeSound();
+    }
+    
 }
