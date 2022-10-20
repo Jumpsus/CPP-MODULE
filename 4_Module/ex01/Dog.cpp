@@ -1,8 +1,7 @@
 #include "Dog.hpp"
 
-Dog::Dog(){
+Dog::Dog() : Animal("dog"){
     std::cout << "Create Default constructor Dog" << std::endl;
-    this->type = "dog";
     this->brain = new Brain();
 }
 
@@ -11,17 +10,16 @@ Dog::~Dog(){
     std::cout << "Destroy Dog (T_T)" << std::endl;
 }
 
-Dog::Dog(Dog const &dog): Animal(){
+Dog::Dog(Dog const &dog): Animal(dog.getType()){
     std::cout << "Copy constructor Dog" <<std::endl;
-    this->type = dog.getType(); // actually this don't need to use getType
     this->brain = new Brain();
-    *(this->brain) = *(dog.brain);
+    *(this->brain) = *(dog.getBrain());
 }
 
 Dog &Dog::operator=(Dog const &dog){
     std::cout << "Use copy operator Dog" <<std::endl;
     this->type = dog.getType(); // actually this don't need to use getType
-    *(this->brain) = *(dog.brain);
+    *(this->brain) = *(dog.getBrain());
     return (*this);
 }
 

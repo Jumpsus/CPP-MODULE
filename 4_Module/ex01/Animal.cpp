@@ -4,9 +4,8 @@ Animal::Animal(){
     std::cout << "Create Default constructor Animal" << std::endl;
 }
 
-Animal::Animal(std::string const &type){
+Animal::Animal(std::string const &type): type(type){
     std::cout << "Create constructor Animal type: " << this->type << std::endl;
-    this->type = type;
 }
 
 Animal::Animal(Animal &animal){
