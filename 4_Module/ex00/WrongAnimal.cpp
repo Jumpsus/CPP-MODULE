@@ -4,9 +4,8 @@ WrongAnimal::WrongAnimal(){
     std::cout << "Create Default constructor WrongAnimal" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(std::string const &type){
+WrongAnimal::WrongAnimal(std::string const &type): type(type){
     std::cout << "Create constructor WrongAnimal type: " << this->type << std::endl;
-    this->type = type;
 }
 
 WrongAnimal::WrongAnimal(WrongAnimal &animal){
