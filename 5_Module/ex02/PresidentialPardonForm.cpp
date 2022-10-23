@@ -28,14 +28,10 @@ PresidentialPardonForm::~PresidentialPardonForm(){
 }
 
 void    PresidentialPardonForm::execute(Bureaucrat const &executor) const{
-    if (executor.getGrade() > this->getRequiredExecGrade()){
-        throw (Form::BureauceatTooLowException());
+    if (this->executable(executor)){
+        std::cout << executor.getName() << " executed " << this->getName() << std::endl;
+        std::cout << "[INFORM] " << this->target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
     }
-    if (!this->getSignStatus()){
-        throw (Form::FormIsNotSigned());
-    }
-    std::cout << executor.getName() << " executed " << this->getName() << std::endl;
-    std::cout << "[INFORM] " << this->target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &out, PresidentialPardonForm &f){

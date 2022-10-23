@@ -29,21 +29,16 @@ RobotomyRequestForm::~RobotomyRequestForm(){
 
 void    RobotomyRequestForm::execute(Bureaucrat const &executor) const{
 
-    if (executor.getGrade() > this->getRequiredExecGrade()){
-        throw (Form::BureauceatTooLowException());
-    }
-    if (!this->getSignStatus()){
-        throw (Form::FormIsNotSigned());
-    }
+    if (this->executable(executor)){
+        std::cout << executor.getName() << " executed " << this->getName() << std::endl;
+        std::cout << "Drill Drill Dr..... *Drilling Noise" << std::endl;
     
-    std::cout << executor.getName() << " executed " << this->getName() << std::endl;
-    std::cout << "Drill Drill Dr..... *Drilling Noise" << std::endl;
-
-    srand(time(0));
-    if (rand() %2 == 0){
-        std::cout << this->target << " has been robotomized..." <<std::endl;
-    } else {
-        std::cout << "robotomy failed..." << std::endl;
+        srand(time(0));
+        if (rand() %2 == 0){
+            std::cout << this->target << " has been robotomized..." <<std::endl;
+        } else {
+            std::cout << "robotomy failed..." << std::endl;
+        }
     }
 }
 

@@ -62,6 +62,16 @@ void        Form::beSigned(Bureaucrat &b){
     this->sign = true;
 }
 
+bool        Form::executable(const Bureaucrat &b) const{
+    if (!this->getSignStatus()){
+        throw (Form::FormIsNotSigned());
+    }
+    if (b.getGrade() > this->getRequiredExecGrade()){
+        throw (Form::BureauceatTooLowException());
+    }
+    return true;
+}
+
 std::ostream &operator<<(std::ostream &out, Form &f){
     out << f.getName() << ", form required signed grade: " << f.getRequiredSignGrade() \
     << " form required exec grade: " << f.getRequiredExecGrade() << " sign status: "  \

@@ -23,6 +23,7 @@ class Form{
         void        beSigned(Bureaucrat &b);
 
         // newly added
+        bool                executable(const Bureaucrat &b) const;
         virtual void        execute(Bureaucrat const &b) const = 0;
         class GradeTooLowException: public std::exception{
             virtual const char *what() const throw(){

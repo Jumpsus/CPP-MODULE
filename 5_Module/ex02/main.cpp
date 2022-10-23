@@ -6,7 +6,7 @@
 
 int main(void){
     Bureaucrat *b1 = new Bureaucrat("bureacrat_1", 1);
-    Bureaucrat *b3 = new Bureaucrat("bureacrat_1", 150);
+    Bureaucrat *b3 = new Bureaucrat("bureacrat_3", 150);
 
     std::cout << "===== Shruberry Try (expect no err)  =====" << std::endl;
     try {

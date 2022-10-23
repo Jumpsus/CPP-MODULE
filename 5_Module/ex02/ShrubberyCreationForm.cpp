@@ -29,48 +29,43 @@ ShruberryCreationForm::~ShruberryCreationForm(){
 
 void    ShruberryCreationForm::execute(Bureaucrat const &executor) const{
 
-    if (executor.getGrade() > this->getRequiredExecGrade()){
-        throw (Form::BureauceatTooLowException());
-    }
-    if (!this->getSignStatus()){
-        throw (Form::FormIsNotSigned());
-    }
+    if (this->executable(executor)){
+        std::cout << executor.getName() << " executed " << this->getName() << std::endl;
+        std::string name = this->target + "_shruberry";
+        char *name_char = &name[0];
+        std::ofstream File(name_char);
     
-    std::cout << executor.getName() << " executed " << this->getName() << std::endl;
-    std::string name = this->target + "_shruberry";
-    char *name_char = &name[0];
-    std::ofstream File(name_char);
-
-    File << "                                                             ." << std::endl;
-    File << "                                              .         ;  " << std::endl;
-    File << "                 .              .              ;%     ;;   " << std::endl;
-    File << "                   ,           ,                :;%  %;   " << std::endl;
-    File << "                    :         ;                   :;%;'     .," << std::endl;   
-    File << "           ,.        %;     %;            ;        %;'    ,;" << std::endl;
-    File << "             ;       ;%;  %%;        ,     %;    ;%;    ,%'" << std::endl;
-    File << "              %;       %;%;      ,  ;       %;  ;%;   ,%;' " << std::endl;
-    File << "               ;%;      %;        ;%;        % ;%;  ,%;'" << std::endl;
-    File << "                `%;.     ;%;     %;'         `;%%;.%;'" << std::endl;
-    File << "                 `:;%.    ;%%. %@;        %; ;@%;%'" << std::endl;
-    File << "                    `:%;.  :;bd%;          %;@%;'" << std::endl;
-    File << "                      `@%:.  :;%.         ;@@%;'   " << std::endl;
-    File << "                        `@%.  `;@%.      ;@@%;         " << std::endl;
-    File << "                          `@%%. `@%%    ;@@%;        " << std::endl;
-    File << "                            ;@%. :@%%  %@@%;       " << std::endl;
-    File << "                              %@bd%%%bd%%:;     " << std::endl;
-    File << "                                #@%%%%%:;;" << std::endl;
-    File << "                                %@@%%%::;" << std::endl;
-    File << "                                %@@@%(o);  . '         " << std::endl;
-    File << "                                %@@@o%;:(.,'         " << std::endl;
-    File << "                            `.. %@@@o%::;         " << std::endl;
-    File << "                               `)@@@o%::;         " << std::endl;
-    File << "                                %@@(o)::;        " << std::endl;
-    File << "                               .%@@@@%::;         " << std::endl;
-    File << "                               ;%@@@@%::;.          " << std::endl;
-    File << "                              ;%@@@@%%:;;;. " << std::endl;
-    File << "                          ...;%@@@@@%%:;;;;,..    Gilo97" << std::endl;
-
-    File.close();
+        File << "                                                             ." << std::endl;
+        File << "                                              .         ;  " << std::endl;
+        File << "                 .              .              ;%     ;;   " << std::endl;
+        File << "                   ,           ,                :;%  %;   " << std::endl;
+        File << "                    :         ;                   :;%;'     .," << std::endl;   
+        File << "           ,.        %;     %;            ;        %;'    ,;" << std::endl;
+        File << "             ;       ;%;  %%;        ,     %;    ;%;    ,%'" << std::endl;
+        File << "              %;       %;%;      ,  ;       %;  ;%;   ,%;' " << std::endl;
+        File << "               ;%;      %;        ;%;        % ;%;  ,%;'" << std::endl;
+        File << "                `%;.     ;%;     %;'         `;%%;.%;'" << std::endl;
+        File << "                 `:;%.    ;%%. %@;        %; ;@%;%'" << std::endl;
+        File << "                    `:%;.  :;bd%;          %;@%;'" << std::endl;
+        File << "                      `@%:.  :;%.         ;@@%;'   " << std::endl;
+        File << "                        `@%.  `;@%.      ;@@%;         " << std::endl;
+        File << "                          `@%%. `@%%    ;@@%;        " << std::endl;
+        File << "                            ;@%. :@%%  %@@%;       " << std::endl;
+        File << "                              %@bd%%%bd%%:;     " << std::endl;
+        File << "                                #@%%%%%:;;" << std::endl;
+        File << "                                %@@%%%::;" << std::endl;
+        File << "                                %@@@%(o);  . '         " << std::endl;
+        File << "                                %@@@o%;:(.,'         " << std::endl;
+        File << "                            `.. %@@@o%::;         " << std::endl;
+        File << "                               `)@@@o%::;         " << std::endl;
+        File << "                                %@@(o)::;        " << std::endl;
+        File << "                               .%@@@@%::;         " << std::endl;
+        File << "                               ;%@@@@%::;.          " << std::endl;
+        File << "                              ;%@@@@%%:;;;. " << std::endl;
+        File << "                          ...;%@@@@@%%:;;;;,..    Gilo97" << std::endl;
+    
+        File.close();
+    }
 }
 
 std::ostream &operator<<(std::ostream &out, ShruberryCreationForm &f){
