@@ -13,18 +13,17 @@ int main(void){
 
          std::cout << "***** Bureaucrat Try to sign form  *****" << std::endl;
          b1.signForm(fl);
-         std::cout << "sign status of " << fl.getName() << " : " << fl.getSignStatus() << std::endl;
+         std::cout << "sign status of " << fl.getName() << " : " << std::boolalpha << fl.getSignStatus() << std::endl;
          std::cout << fl << std::endl;
          b1.signForm(fp);
-         // ** After this line shouldn't be exec !! **
-         std::cout << "sign status of " << fp.getName() << " : " << fp.getSignStatus() << std::endl;
+         std::cout << "sign status of " << fp.getName() << " : " << std::boolalpha << fp.getSignStatus() << std::endl;
          std::cout << fp << std::endl;
     }
     catch (std::exception &exception){
         std::cout << exception.what() <<std::endl;
     }
 
-    std::cout << std::endl << "===== Second Try (Create Too higg Form expect exception too high) =====" << std::endl;
+    std::cout << std::endl << "===== Second Try (Create Too high Form expect exception too high) =====" << std::endl;
     try {
          Form fp("Form_Too_Premium", 0, 0);
     }

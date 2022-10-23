@@ -30,11 +30,13 @@ RobotomyRequestForm::~RobotomyRequestForm(){
 void    RobotomyRequestForm::execute(Bureaucrat const &executor) const{
 
     if (executor.getGrade() > this->getRequiredExecGrade()){
-        throw (Form::GradeTooLowException());
+        throw (Form::BureauceatTooLowException());
     }
     if (!this->getSignStatus()){
-        throw (Form::FormHasNotSignedYet());
+        throw (Form::FormIsNotSigned());
     }
+    
+    std::cout << executor.getName() << " executed " << this->getName() << std::endl;
     std::cout << "Drill Drill Dr..... *Drilling Noise" << std::endl;
 
     srand(time(0));
@@ -48,7 +50,7 @@ void    RobotomyRequestForm::execute(Bureaucrat const &executor) const{
 std::ostream &operator<<(std::ostream &out, RobotomyRequestForm &f){
     out << f.getName() << ", form required signed grade: " << f.getRequiredSignGrade() \
     << " form required exec grade: " << f.getRequiredExecGrade() << " sign status: "  \
-    << f.getSignStatus() << std::endl;
+    << std::boolalpha << f.getSignStatus() << std::endl;
 
     return (out);
 }

@@ -36,9 +36,21 @@ class Form{
             }
         };
 
-        class FormHasNotSignedYet: public std::exception{
+        class BureauceatTooLowException: public std::exception{
             virtual const char *what() const throw(){
-                return "Form Exception: Cannot Execute Form because Form hasn't been signed";
+                return "bureaucrat grade too low.";
+            }
+        };
+
+        class FormHasBeenSigned: public std::exception{
+            virtual const char *what() const throw(){
+                return "form has been signed.";
+            }
+        };
+
+        class FormIsNotSigned : public std::exception{
+            virtual const char *what() const throw(){
+                return "form isn't signed.";
             }
         };
 

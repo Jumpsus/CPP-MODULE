@@ -53,8 +53,11 @@ bool        Form::getSignStatus() const{
 }
 
 void        Form::beSigned(Bureaucrat &b){
+    if (this->sign){
+        throw (Form::FormHasBeenSigned());
+    }
     if (b.getGrade() > this->getRequiredSignGrade()){
-        throw(Form::GradeTooLowException());
+        throw(Form::BureauceatTooLowException()) ;
     }
     this->sign = true;
 }

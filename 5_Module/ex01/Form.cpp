@@ -53,8 +53,11 @@ bool        Form::getSignStatus() const{
 }
 
 void        Form::beSigned(Bureaucrat &b){
+    if (this->sign){
+        throw (Form::FormHasBeenSigned());
+    }
     if (b.getGrade() > this->getRequiredSignGrade()){
-        throw(Form::GradeTooLowException());
+        throw(Form::BureauceatTooLowException()) ;
     }
     this->sign = true;
 }
@@ -62,7 +65,7 @@ void        Form::beSigned(Bureaucrat &b){
 std::ostream &operator<<(std::ostream &out, Form &f){
     out << f.getName() << ", form required signed grade: " << f.getRequiredSignGrade() \
     << " form required exec grade: " << f.getRequiredExecGrade() << " sign status: "  \
-    << f.getSignStatus() << std::endl;
+    << std::boolalpha << f.getSignStatus() << std::endl;
 
     return (out);
 }

@@ -14,10 +14,8 @@ int main(void){
 
          std::cout << "***** Bureaucrat Try to sign form  *****" << std::endl;
          b1->signForm(*sc);
-         sc->beSigned(*b1);
-         std::cout << "sign status of " << sc->getName() << " : " << sc->getSignStatus() << std::endl;
+         std::cout << "sign status of " << sc->getName() << " : " << std::boolalpha << sc->getSignStatus() << std::endl;
          b1->executeForm(*sc);
-         sc->execute(*b1);
          delete sc;
     }
     catch (std::exception &exception){
@@ -31,10 +29,8 @@ int main(void){
 
          std::cout << "***** Bureaucrat Try to sign form  *****" << std::endl;
          b1->signForm(*rb);
-         rb->beSigned(*b1);
-         std::cout << "sign status of " << rb->getName() << " : " << rb->getSignStatus() << std::endl;
+         std::cout << "sign status of " << rb->getName() << " : " << std::boolalpha << rb->getSignStatus() << std::endl;
          b1->executeForm(*rb);
-         rb->execute(*b1);
          delete rb;
     }
     catch (std::exception &exception){
@@ -48,10 +44,8 @@ int main(void){
 
          std::cout << "***** Bureaucrat Try to sign form  *****" << std::endl;
          b1->signForm(*pp);
-         pp->beSigned(*b1);
-         std::cout << "sign status of " << pp->getName() << " : " << pp->getSignStatus() << std::endl;
+         std::cout << "sign status of " << pp->getName() << " : " << std::boolalpha << pp->getSignStatus() << std::endl;
          b1->executeForm(*pp);
-         pp->execute(*b1);
          delete pp;
     }
     catch (std::exception &exception){
@@ -63,9 +57,8 @@ int main(void){
     try {
          Form *pp = new PresidentialPardonForm("pred");
 
-         std::cout << "sign status of " << pp->getName() << " : " << pp->getSignStatus() << std::endl;
+         std::cout << "sign status of " << pp->getName() << " : " << std::boolalpha << pp->getSignStatus() << std::endl;
          b1->executeForm(*pp);
-         pp->execute(*b1);
          delete pp;
     }
     catch (std::exception &exception){
@@ -79,10 +72,8 @@ int main(void){
 
          std::cout << "***** Bureaucrat Try to sign form  *****" << std::endl;
          b3->signForm(*pp);
-         pp->beSigned(*b3);
-         std::cout << "sign status of " << pp->getName() << " : " << pp->getSignStatus() << std::endl;
+         std::cout << "sign status of " << pp->getName() << " : " << std::boolalpha << pp->getSignStatus() << std::endl;
          b3->executeForm(*pp);
-         pp->execute(*b3);
          delete pp;
     }
     catch (std::exception &exception){

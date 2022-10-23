@@ -24,13 +24,31 @@ class Form{
 
         class GradeTooLowException: public std::exception{
             virtual const char *what() const throw(){
-                return "Form Exception: Grade Too Low";
+                return "Form Exception: Cannot creat form Grade Too Low";
             }
         };
 
         class GradeTooHighException: public std::exception{
             virtual const char *what() const throw(){
-                return "Form Exception: Grade Too High";
+                return "Form Exception: Cannot creat form Grade Too High";
+            }
+        };
+
+        class BureauceatTooLowException: public std::exception{
+            virtual const char *what() const throw(){
+                return "bureaucrat grade too low.";
+            }
+        };
+
+        class FormHasBeenSigned: public std::exception{
+            virtual const char *what() const throw(){
+                return "form has been signed.";
+            }
+        };
+
+        class FormIsNotSigned : public std::exception{
+            virtual const char *what() const throw(){
+                return "form isn't signed.";
             }
         };
 

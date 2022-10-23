@@ -30,12 +30,13 @@ ShruberryCreationForm::~ShruberryCreationForm(){
 void    ShruberryCreationForm::execute(Bureaucrat const &executor) const{
 
     if (executor.getGrade() > this->getRequiredExecGrade()){
-        throw(Form::GradeTooLowException());
+        throw (Form::BureauceatTooLowException());
     }
     if (!this->getSignStatus()){
-        throw(Form::FormHasNotSignedYet());
+        throw (Form::FormIsNotSigned());
     }
     
+    std::cout << executor.getName() << " executed " << this->getName() << std::endl;
     std::string name = this->target + "_shruberry";
     char *name_char = &name[0];
     std::ofstream File(name_char);
@@ -75,7 +76,7 @@ void    ShruberryCreationForm::execute(Bureaucrat const &executor) const{
 std::ostream &operator<<(std::ostream &out, ShruberryCreationForm &f){
     out << f.getName() << ", form required signed grade: " << f.getRequiredSignGrade() \
     << " form required exec grade: " << f.getRequiredExecGrade() << " sign status: "  \
-    << f.getSignStatus() << std::endl;
+    << std::boolalpha << f.getSignStatus() << std::endl;
 
     return (out);
 }
