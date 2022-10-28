@@ -24,7 +24,7 @@ int main(void){
         d =someRandomIntern.makeForm("unknown form", "target");
     }
 	
-    std::cotu << endl;
+    std::cout << std::endl;
     std::cout << "===== Worst Bureaucrat Try to sign and execute every form  =====" << std::endl;
     try {
          std::cout << "***** Bureaucrat Try to sign form  *****" << std::endl;
