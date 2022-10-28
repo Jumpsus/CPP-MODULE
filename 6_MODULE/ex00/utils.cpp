@@ -105,15 +105,11 @@ void        printChar(unsigned char input){
 }
 
 void        printInt(int input){
-    if (input > std::numeric_limits<int>::max() || input < std::numeric_limits<int>::min()){
-        std::cout << "int: impossible" << std::endl;
-        return;
-    }
     std::cout << "int: " << input << std::endl;
 }
 
 void            printFloat(float input){
-    if ((input - (int)input) == (float)0){
+    if ((input - static_cast<int>(input)) == static_cast<float>(0)){
         std::cout << "float: " << input << ".0f" << std::endl;
         return ;
     }
@@ -121,8 +117,8 @@ void            printFloat(float input){
 }
 
 void            printDouble(double input){
-    if ((input - (int)input) == (double)0){
-        std::cout << "float: " << input << ".0" << std::endl;
+    if ((input - static_cast<int>(input)) == static_cast<double>(0)){
+        std::cout << "double: " << input << ".0" << std::endl;
         return ;
     }
     std::cout << "double: " << input << std::endl;

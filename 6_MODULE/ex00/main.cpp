@@ -3,6 +3,24 @@
 #include <stdlib.h>
 #include "utils.hpp"
 
+//check conversion overflow int
+template <typename T>
+bool IsIntOverflow(T input){
+    if (input > static_cast<T>(std::numeric_limits<int>::max()) || (input < static_cast<T>(std::numeric_limits<int>::min())))
+        return true;
+    return false;
+}
+
+//check conversion overflow float
+template <typename T>
+bool IsFloatOverflow(T input){
+    if (input == std::numeric_limits<T>::infinity() || input == -std::numeric_limits<T>::infinity())
+        return false;
+    if (input > static_cast<T>(std::numeric_limits<float>::max()) || (input < static_cast<float>(std::numeric_limits<int>::min())))
+        return true;
+    return false;
+}
+
 void    implement(char *in){
     std::string input = convertToStr(in);
 
@@ -56,7 +74,10 @@ void    implement(char *in){
                 std::cout << "int: impossible" << std::endl;
             } else {
                 printChar(static_cast<unsigned char>(scalarFloat));
-                printInt(static_cast<int>(scalarFloat));
+                if (IsIntOverflow<float>(scalarFloat))
+                    std::cout << "int: impossible" << std::endl;
+                else
+                    printInt(static_cast<int>(scalarFloat));
             }
             printFloat(scalarFloat);
             printDouble(static_cast<double>(scalarFloat));
@@ -68,9 +89,15 @@ void    implement(char *in){
                 std::cout << "int: impossible" << std::endl;
             } else {
                 printChar(static_cast<unsigned char>(scalarDouble));
-                printInt(static_cast<int>(scalarDouble));
+                if (IsIntOverflow<double>(scalarDouble))
+                    std::cout << "int: impossible" << std::endl;
+                else
+                    printInt(static_cast<int>(scalarDouble));
             }
-            printFloat(static_cast<float>(scalarDouble));
+            if (IsFloatOverflow<double>(scalarDouble))
+                    std::cout << "float: impossible" << std::endl;
+            else
+                    printFloat(static_cast<float>(scalarDouble));
             printDouble(scalarDouble);
             break;
     }
