@@ -110,16 +110,16 @@ void        printInt(int input){
 
 void            printFloat(float input){
     if ((input - static_cast<int>(input)) == static_cast<float>(0)){
-        std::cout << "float: " << input << ".0f" << std::endl;
-        return ;
+        std::cout.precision(1);
+        std::cout << std::fixed;
     }
     std::cout << "float: " << input << "f" << std::endl;
 }
 
 void            printDouble(double input){
     if ((input - static_cast<int>(input)) == static_cast<double>(0)){
-        std::cout << "double: " << input << ".0" << std::endl;
-        return ;
+        std::cout.precision(1);
+        std::cout << std::fixed;
     }
     std::cout << "double: " << input << std::endl;
 }
