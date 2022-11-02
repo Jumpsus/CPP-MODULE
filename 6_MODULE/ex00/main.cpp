@@ -16,7 +16,7 @@ template <typename T>
 bool IsFloatOverflow(T input){
     if (input == std::numeric_limits<T>::infinity() || input == -std::numeric_limits<T>::infinity())
         return false;
-    if (input > static_cast<T>(std::numeric_limits<float>::max()) || (input < static_cast<float>(std::numeric_limits<int>::min())))
+    if (input > static_cast<T>(std::numeric_limits<float>::max()) || (input < static_cast<T>(std::numeric_limits<float>::min())))
         return true;
     return false;
 }
