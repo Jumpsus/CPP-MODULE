@@ -8,4 +8,13 @@ void    iter(T *array, int length, void (*func)(T&)){
     }
 }
 
+// for const input function
+template <typename T>
+void    iter(T const *array, int length, void (*func)(T const&)){
+    for (int i = 0; i < length; i++){
+        func(array[i]);
+    }
+}
+
+
 #endif
