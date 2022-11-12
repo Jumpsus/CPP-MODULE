@@ -17,7 +17,7 @@ int main(){
     std::string test[5] = {"a", "b", "c", "d", "e"};
 
     std::cout << "=== Base Data ===" << std::endl;
-    iter(test, 5, print);
+    iter(test, 5, print<std::string>);
     std::cout << std::endl << "=== Adding Suffix ===" << std::endl;
     iter(test, 5, addSuffix);
     iter(test, 5, print);
