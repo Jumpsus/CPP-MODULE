@@ -26,11 +26,11 @@ int main(){
         }
         display(example);
 
+        std::cout << std::endl << "=== Start finding integer from 1 - 20 ===" << std::endl;
         for(int j = 0; j < 20 ; j++){
             std::cout << "Find: " << j << std::endl;
-            if (easyfind(example, j)){
-                std::cout << "Can find " << j << std::endl << std::endl;
-            }
+            std::vector<int>::iterator result = easyfind(example, j);
+            std::cout << "Result Easy find can found at index " << result - example.begin() << std::endl;
         }
     }
     catch(std::exception &ex){

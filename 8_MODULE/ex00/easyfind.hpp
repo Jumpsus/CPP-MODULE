@@ -9,7 +9,7 @@ class exceptionNotFound : public std::exception{
 };
 
 template <typename T>
-int     easyfind(T &container, int target){
+typename T::iterator     easyfind(T &container, int target){
     typename T::iterator     index;
     index = std::find(container.begin(), container.end(), target);
 
@@ -17,5 +17,5 @@ int     easyfind(T &container, int target){
         throw(exceptionNotFound());
     }
     
-    return 1;
+    return index;
 }
