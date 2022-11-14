@@ -1,33 +1,32 @@
 #include "MutantStack.hpp"
 
-int main(){
-    MutantStack<int> m;
-    MutantStack<int> mcpy(m);
+int main()
+{
+    MutantStack<int> mstack;
 
-    for (int    i = 0; i < 10; i++){
-        m.push(i * i);
+    mstack.push(5);
+    mstack.push(17);
+
+    std::cout << "Top of stack (expect 17):" << mstack.top() << std::endl;
+    mstack.pop();
+
+    std::cout << "Size of stack (expect 1):" << mstack.size() << std::endl;
+
+    mstack.push(3);
+    mstack.push(5);
+    mstack.push(737);
+    //[...]
+    mstack.push(0);
+    MutantStack<int>::iterator it = mstack.begin();
+    MutantStack<int>::iterator ite = mstack.end();
+    ++it;
+    --it;
+
+    while (it != ite)
+    {
+        std::cout << *it << std::endl;
+        ++it;
     }
-
-    MutantStack<int>::iterator iter;
-    mcpy = m;
-
-    for (int    i = 10; i < 20; i++){
-        mcpy.push(i * i);
-    }
-
-    std::cout << "m mutant stack member : ";
-    iter = m.begin();
-    while (iter != m.end()){
-        std::cout << (*iter) << " ";
-        iter++;
-    }
-    std::cout << std::endl;
-
-    std::cout << "mcpy mutant stack member : ";
-    iter = mcpy.begin();
-    while (iter != mcpy.end()){
-        std::cout << (*iter) << " ";
-        iter++;
-    }
-    std::cout << std::endl;
+    std::stack<int> s(mstack);
+    return 0;
 }
